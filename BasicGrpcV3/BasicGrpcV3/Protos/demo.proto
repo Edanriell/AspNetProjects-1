@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option csharp_namespace = "BasicGrpcV3";
+
+service RandomNumbers {
+  rpc GetRandomNumbers(GetRandomNumbersRequest) returns (stream GetRandomNumbersResponse);
+  rpc SendRandomNumbers(stream SendRandomNumbersRequest) returns (SendRandomNumbersResponse);
+} 
+
+message GetRandomNumbersRequest {
+  int32 min = 1;
+  int32 max = 2;
+  int32 count = 3;
+}
+
+message GetRandomNumbersResponse {
+  int32 number = 1;
+}
+
+message SendRandomNumbersRequest {
+  int32 number = 1;
+}
+
+message SendRandomNumbersResponse {
+  int32 count = 1;
+  int32 sum = 2;
+}
+
+message ChatMessage {
+  string sender = 1;
+  string message = 2;
+}
+
+service Chat {
+  rpc SendMessage(stream ChatMessage) returns (stream ChatMessage);
+}
+
+//  In the preceding proto file, we have defined a ChatMessage message containing two fields: sender
+//  and message. Additionally, we have defined a Chat service with a SendMessage RPC method. It
+//  is important to note that both the request and response of this method are annotated with the stream
+//  keyword, indicating that they are both stream messages.

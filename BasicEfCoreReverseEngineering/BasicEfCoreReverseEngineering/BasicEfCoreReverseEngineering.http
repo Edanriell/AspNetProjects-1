@@ -1,0 +1,6 @@
+@BasicEfCoreReverseEngineering_HostAddress = http://localhost:5163
+
+GET {{BasicEfCoreReverseEngineering_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

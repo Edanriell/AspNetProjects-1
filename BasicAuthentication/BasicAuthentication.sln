@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicAuthentication", "BasicAuthentication\BasicAuthentication.csproj", "{8C3AE44D-49BF-45ED-8DAB-D9B6F7C8819B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicAuthenticationClient", "BasicAuthenticationClient\BasicAuthenticationClient.csproj", "{72B9D459-815F-42AD-B48F-47E81DE2E9A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C3AE44D-49BF-45ED-8DAB-D9B6F7C8819B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C3AE44D-49BF-45ED-8DAB-D9B6F7C8819B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C3AE44D-49BF-45ED-8DAB-D9B6F7C8819B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C3AE44D-49BF-45ED-8DAB-D9B6F7C8819B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72B9D459-815F-42AD-B48F-47E81DE2E9A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72B9D459-815F-42AD-B48F-47E81DE2E9A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72B9D459-815F-42AD-B48F-47E81DE2E9A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72B9D459-815F-42AD-B48F-47E81DE2E9A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

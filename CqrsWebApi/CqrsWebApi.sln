@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqrsWebApi", "CqrsWebApi\CqrsWebApi.csproj", "{0D22D320-1971-47A0-BEF8-06793F002C3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqrsWebApi.Core", "CqrsWebApi.Core\CqrsWebApi.Core.csproj", "{19E7765E-7315-45D9-B4DD-884DB5F6DC77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqrsWebApi.Infrastructure", "CqrsWebApi.Infrastructure\CqrsWebApi.Infrastructure.csproj", "{3E68EB45-D887-4447-A897-91376D0FDD5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D22D320-1971-47A0-BEF8-06793F002C3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D22D320-1971-47A0-BEF8-06793F002C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D22D320-1971-47A0-BEF8-06793F002C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D22D320-1971-47A0-BEF8-06793F002C3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19E7765E-7315-45D9-B4DD-884DB5F6DC77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19E7765E-7315-45D9-B4DD-884DB5F6DC77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19E7765E-7315-45D9-B4DD-884DB5F6DC77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19E7765E-7315-45D9-B4DD-884DB5F6DC77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E68EB45-D887-4447-A897-91376D0FDD5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E68EB45-D887-4447-A897-91376D0FDD5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E68EB45-D887-4447-A897-91376D0FDD5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E68EB45-D887-4447-A897-91376D0FDD5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,157 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/wrappers.proto";
+
+//    Protobuf supports a package keyword to avoid naming conflicts, depending on the language.
+//    For example, package com.company is equivalent to option csharp_namespace
+//    = "Com.Company" in C# (the name will be converted into PascalCase), and package
+//    com.company is equivalent to option java_package = "com.company" in Java.
+//    However, package com.company will be ignored in Python since Python modules are
+//    organized by filesystem directories.
+//    Since we are using C#, we use the option csharp_namespace attribute, which can override
+//    the package keyword for C# applications. If you share the proto file with other applications
+//    that use other languages, you can use the package keyword or the language-specific option
+//    to avoid naming conflicts.
+
+option csharp_namespace = "BasicGrpcV2";
+
+service Invoice {
+  rpc CreateAddress(CreateAddressRequest) returns (ActionReply);
+  rpc AddInvoiceItem(AddInvoiceItemRequest) returns (ActionReply);
+  rpc UpdateInvoiceDueDate(UpdateInvoiceDueDateRequest) returns (ActionReply);
+}
+
+service Contact {
+  rpc CreateContact(CreateContactRequest) returns (CreateContactResponse);
+}
+
+message ActionReply {
+  bool success = 1;
+  string message = 2;
+}
+
+enum InvoiceStatus {
+  INVOICE_STATUS_UNKNOWN = 0;
+  INVOICE_STATUS_DRAFT = 1;
+  INVOICE_STATUS_AWAIT_PAYMENT = 2;
+  INVOICE_STATUS_PAID = 3;
+  INVOICE_STATUS_OVERDUE = 4;
+  INVOICE_STATUS_CANCELLED = 5;
+}
+
+message CreateAddressRequest {
+  string street = 1;
+  string city = 2;
+  string state = 3;
+  string zip_code = 4;
+  string country = 5;
+}
+
+message CreateContactRequest {
+  string first_name = 1;
+  string last_name = 2;
+  string email = 3;
+  string phone = 4;
+  int32 year_of_birth = 5;
+  bool is_active = 6;
+}
+
+message CreateContactResponse {
+  string contact_id = 1;
+}
+
+message UpdateInvoiceDueDateRequest {
+  string invoice_id = 1;
+  google.protobuf.Timestamp due_date = 2;
+  google.protobuf.Duration grace_period = 3;
+}
+
+//  Because these types are not native .NET types, we need to convert them into native .NET types when
+//  using them. The Google.Protobuf.WellKnownTypes namespace provides some methods to
+//  do the conversion. Here is an example of converting .NET types into protobuf types:
+
+//  var updateInvoiceDueDateRequest = new UpdateInvoiceDueDateRequest
+//  {
+//    InvoiceId = Guid.Parse("3193C36C-2AAB-49A7-A0B1-6BDB3B69DEA1"),
+//    DueDate = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(30)),
+//    GracePeriod = Duration.FromTimeSpan(TimeSpan.FromDays(10))
+//  };
+
+//  We can use the Timestamp class to convert DateTime and DateTimeOffset values
+//  into Timestamp values. The Timestamp.FromDateTime() method is used to convert a
+//  DateTime value, while the Timestamp.FromDateTimeOffset() method is used to convert a
+//  DateTimeOffset value. We can also use the Duration.FromTimeSpan() method to convert
+//  a TimeSpan value into a Duration value. Note that if you use the DateTimeOffset type in
+//  your application, the offset of DateTimeOffset values is always 0, and the DateTime.Kind
+//  property is always set to DateTimeKind.Utc.
+
+//  Similarly, we can convert protobuf types into .NET types:
+//  var dueDate = updateInvoiceDueDateRequest.DueDate.ToDateTime();
+//  var gracePeriod = updateInvoiceDueDateRequest.GracePeriod.
+//  ToTimeSpan();
+
+//  The Timestamp class provides several methods for converting its values into other types. The
+//  ToDateTime() method can be used to convert a Timestamp value into a DateTime value, while
+//  the ToTimeSpan() method can be used to convert a Duration value into a TimeSpan value.
+//  Additionally, the ToDateTimeOffset() method can be used to convert a Timestamp value
+//  into a DateTimeOffset value. Depending on your requirements, you can select the appropriate
+//  method for your needs.
+
+
+//// Example: 12345.6789 -> { units = 12345, nanos = 678900000 }
+//message DecimalValue {
+//  // Whole units part of the amount
+//  int64 units = 1;
+//  // Nano units of the amount (10^-9)
+//  // Must be same sign as units
+//  sfixed32 nanos = 2;
+//}
+
+
+message AddInvoiceItemRequest {
+  string name = 1;
+  string description = 2;
+  // Nullable
+  google.protobuf.DoubleValue unit_price = 3;
+  google.protobuf.Int32Value quantity = 4;
+  google.protobuf.BoolValue is_taxable = 5;
+}
+
+message UpdateBatchInvoicesStatusRequest {
+  repeated string invoice_ids = 1;
+  InvoiceStatus status = 2;
+}
+
+//  In the preceding code, we use the repeated keyword to define a repeated field. The generated
+//  code for the repeated invoice_ids field in the UpdateInvoicesStatusRequest message
+//  is as follows:
+
+//  var updateInvoicesStatusRequest = new
+//  UpdateBatchInvoicesStatusRequest();
+//// Add one item
+//  updateInvoicesStatusRequest.InvoiceIds.Add("3193C36C-2AAB-49A7-A0B1-
+//  6BDB3B69DEA1");
+//// Add multiple items
+//  updateInvoicesStatusRequest.InvoiceIds.Add(new[]
+//  { "99143291-2523-4EE8-8A4D-27B09334C980", "BB4E6CFE-6AAE4948-941A-26D1FBF59E8A" });
+
+
+//  Protobuf supports map fields, which are collections of key-value pairs similar to a .NET dictionary.
+//  The following code provides an example of how to define a map field:
+message UpdateInvoicesStatusRequest {
+  map<string, InvoiceStatus> invoice_status_map = 1;
+}
+
+//  var updateInvoicesStatusRequest = new UpdateInvoicesStatusRequest();
+//// Add one key-value pair
+//  updateInvoicesStatusRequest.InvoiceStatusMap.Add("3193C36C-2AAB-49A7-
+//  A0B1-6BDB3B69DEA1", InvoiceStatus.AwaitPayment);
+//// Add multiple key-value pairs
+//  updateInvoicesStatusRequest.InvoiceStatusMap.Add(new
+//  Dictionary<string, InvoiceStatus>
+//  {
+//    { "99143291-2523-4EE8-8A4D-27B09334C980", InvoiceStatus.Paid },
+//    { "BB4E6CFE-6AAE-4948-941A-26D1FBF59E8A", InvoiceStatus.Overdue }
+//  });

@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicConcurrencyConflict", "BasicConcurrencyConflict\BasicConcurrencyConflict.csproj", "{BB847F4A-8E69-4331-9909-A4B046D626FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB847F4A-8E69-4331-9909-A4B046D626FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB847F4A-8E69-4331-9909-A4B046D626FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB847F4A-8E69-4331-9909-A4B046D626FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB847F4A-8E69-4331-9909-A4B046D626FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

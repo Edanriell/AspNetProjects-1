@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<link
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+			rel="stylesheet"
+	/>
+	<style>
+		/* Custom CSS for the scrollable list */
+		.scrollable-list {
+			max-height: 200px; /* Set the maximum height for the list */
+			overflow-y: auto; /* Enable vertical scrolling */
+		}
+	</style>
+	<title>Chat App</title>
+</head>
+<body>
+<div class="container mt-5">
+	<div class="col-md-6 offset-md-3">
+		<div id="divLogin">
+			<div class="form-group mb-3">
+				<label for="txtUsername">User Name</label>
+				<input class="form-control" id="txtUsername" type="text" />
+			</div>
+			<div class="form-group mb-3">
+				<label for="txtPassword">Password</label>
+				<input class="form-control" id="txtPassword" type="password" />
+			</div>
+			<button class="btn btn-primary btn-block mt-3" id="btnLogin">
+				Login
+			</button>
+		</div>
+		<div id="divChat">
+			<div class="form-group mb-3">
+				<label>User Name</label>
+				<label id="lblUsername"></label>
+			</div>
+			<div class="form-group mb-3">
+				<label>Status</label>
+				<label id="lblStatus"></label>
+			</div>
+			<div class="form-group mb-3">
+				<label id="lblToGroup">Group</label>
+				<input class="form-control" id="txtToGroup" type="text" />
+			</div>
+			<button class="btn btn-primary btn-block mt-3" id="btnJoinGroup">
+				Join Group
+			</button>
+			<button class="btn btn-primary btn-block mt-3" id="btnLeaveGroup">
+				Leave Group
+			</button>
+			<div class="form-group mb-3">
+				<label for="txtToUser">To</label>
+				<input class="form-control" id="txtToUser" type="text" />
+			</div>
+			<div class="form-group mb-3">
+				<label for="txtMessage">Message</label>
+				<input class="form-control" id="txtMessage" type="text" />
+			</div>
+			<button class="btn btn-primary btn-block mt-3" id="btnSend">
+				Send
+			</button>
+			<ul class="list-group mt-3 scrollable-list" id="messages"></ul>
+		</div>
+	</div>
+</div>
+
+<script src="bundle.js" type="module"></script>
+</body>
+</html>

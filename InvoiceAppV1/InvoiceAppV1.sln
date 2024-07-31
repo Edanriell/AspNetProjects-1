@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceAppV1", "InvoiceAppV1\InvoiceAppV1.csproj", "{92D5F422-ED43-4CB5-8F35-9169BFB26812}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{F2F89A4B-991E-4A8F-B021-7E331487D3A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92D5F422-ED43-4CB5-8F35-9169BFB26812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D5F422-ED43-4CB5-8F35-9169BFB26812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D5F422-ED43-4CB5-8F35-9169BFB26812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D5F422-ED43-4CB5-8F35-9169BFB26812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2F89A4B-991E-4A8F-B021-7E331487D3A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2F89A4B-991E-4A8F-B021-7E331487D3A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2F89A4B-991E-4A8F-B021-7E331487D3A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2F89A4B-991E-4A8F-B021-7E331487D3A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
